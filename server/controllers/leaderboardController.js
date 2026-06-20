@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const UserModel = require('../models/user');
 
 exports.globalLeaderboard = async (req, res) => {
   try {
