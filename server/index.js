@@ -20,10 +20,8 @@ const banquesAideRoutes = require('./routes/banquesAide');
 const upload = multer({ limits: { fileSize: 15 * 1024 * 1024 } });
 
 const app = express();
-const cors = require("cors");
-app.use(cors());
 
-// ⭐⭐⭐ AJOUT IMPORTANT : CORS ⭐⭐⭐
+// ⭐⭐⭐ AJOUT IMPORTANT : CORS (UNE SEULE FOIS) ⭐⭐⭐
 const cors = require("cors");
 app.use(cors());
 
@@ -112,7 +110,6 @@ app.post('/api/ai', async (req, res) => {
         model: 'claude-sonnet-4-6',
         max_tokens: 1400,
         messages: [{ role: 'user', content }]
-
       })
     });
 

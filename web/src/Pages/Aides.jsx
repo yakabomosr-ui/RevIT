@@ -12,14 +12,17 @@ export default function Aides() {
 
   // Charger les données depuis ton backend
   useEffect(() => {
-    fetch("http://localhost:4000/api/fonds-aide")
-      .then((res) => res.json())
-      .then((data) => setFonds(data.data));
+  fetch("https://revit-sd4e.onrender.com/api/fonds-aide")
+    .then((res) => res.json())
+    .then((data) => setFonds(data.data))
+    .catch((err) => console.error("Erreur fonds :", err));
 
-    fetch("http://localhost:4000/api/banques-aide")
-      .then((res) => res.json())
-      .then((data) => setBanques(data.data));
-  }, []);
+  fetch("https://revit-sd4e.onrender.com/api/banques-aide")
+    .then((res) => res.json())
+    .then((data) => setBanques(data.data))
+    .catch((err) => console.error("Erreur banques :", err));
+}, []);
+
 
   // Ajouter / retirer des favoris
   const toggleFavori = (item) => {
